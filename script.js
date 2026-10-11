@@ -245,7 +245,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "0000";
+        const SECRET_PIN = "2912";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -366,22 +366,22 @@
                                 closePinPopup();
                                 setTimeout(() => {
                                     const pinScreen = document.getElementById('pin-screen');
-                                    
+
                                     // 1. Fade out PIN screen
                                     pinScreen.classList.remove('active');
 
                                     // 2. Wait for fade out to complete (1 detik)
                                     setTimeout(() => {
                                         pinScreen.style.display = 'none';
-                                        
+
                                         const loadingScreen = document.getElementById('mini-game-screen');
                                         if (loadingScreen) {
                                             loadingScreen.style.display = 'flex';
-                                            
+
                                             // 3. Jeda sedikit lalu jalankan Fade in Mini Game
                                             setTimeout(() => {
                                                 loadingScreen.style.opacity = '1';
-                                                
+
                                                 // 4. Inisialisasi game setelah mulai muncul
                                                 initMiniGame();
                                             }, 50);
@@ -395,22 +395,22 @@
                                 closePinPopup();
                                 setTimeout(() => {
                                     const pinScreen = document.getElementById('pin-screen');
-                                    
+
                                     // 1. Fade out PIN screen
                                     pinScreen.classList.remove('active');
 
                                     // 2. Wait for fade out to complete (1 detik)
                                     setTimeout(() => {
                                         pinScreen.style.display = 'none';
-                                        
+
                                         const loadingScreen = document.getElementById('mini-game-screen');
                                         if (loadingScreen) {
                                             loadingScreen.style.display = 'flex';
-                                            
+
                                             // 3. Jeda sedikit lalu jalankan Fade in Mini Game
                                             setTimeout(() => {
                                                 loadingScreen.style.opacity = '1';
-                                                
+
                                                 // 4. Inisialisasi game setelah mulai muncul
                                                 initMiniGame();
                                             }, 50);
@@ -491,15 +491,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     modalImg.style.display = 'none'; // Sembunyikan foto
                     modalIframe.style.display = 'block'; // Tampilkan alat musik/video
 
-                    const embedUrl = this.getAttribute('data-embed');
+                    let embedUrl = this.getAttribute('data-embed') || '';
+                    if (embedUrl.startsWith('//')) {
+                        embedUrl = 'https:' + embedUrl;
+                    } else if (embedUrl && !embedUrl.startsWith('http://') && !embedUrl.startsWith('https://')) {
+                        embedUrl = 'https://' + embedUrl;
+                    }
                     modalIframe.src = embedUrl; // Masukkan link
 
                     // Hapus class lama
-                    modalIframe.classList.remove('iframe-spotify', 'iframe-youtube', 'iframe-facebook');
+                    modalIframe.classList.remove('iframe-spotify', 'iframe-youtube', 'iframe-facebook', 'iframe-bilibili');
 
-                    // Deteksi platform untuk penyesuaian rasio (16:9 untuk YouTube, Kotak untuk Spotify, 9:16 untuk Facebook)
+                    // Deteksi platform untuk penyesuaian rasio (16:9 untuk YouTube & Bilibili, Kotak untuk Spotify, 9:16 untuk Facebook)
                     if (embedUrl.includes('youtube.com') || embedUrl.includes('youtu.be')) {
                         modalIframe.classList.add('iframe-youtube');
+                    } else if (embedUrl.includes('bilibili.com')) {
+                        modalIframe.classList.add('iframe-bilibili');
                     } else if (embedUrl.includes('spotify.com')) {
                         modalIframe.classList.add('iframe-spotify');
                     } else if (embedUrl.includes('facebook.com')) {

@@ -974,8 +974,9 @@ body {
     height: 152px;
 }
 
-/* Rasio khusus untuk YouTube (16:9 Landscape) */
-#modal-iframe.iframe-youtube {
+/* Rasio khusus untuk YouTube & Bilibili (16:9 Landscape) */
+#modal-iframe.iframe-youtube,
+#modal-iframe.iframe-bilibili {
     width: 90vw;
     max-width: 650px;
     aspect-ratio: 16 / 9;
