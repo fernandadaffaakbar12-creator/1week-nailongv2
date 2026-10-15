@@ -245,7 +245,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "2912";
+        const SECRET_PIN = "2105";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -1044,6 +1044,9 @@ function tutupHalamanLilin() {
         if (progressFill) progressFill.style.width = '0%';
         if (cakeContainer) cakeContainer.classList.remove('holding');
 
+        const btnKeUndangan = document.getElementById('btn-ke-undangan');
+        if (btnKeUndangan) btnKeUndangan.style.display = 'none';
+
         // Reset api lilin
         flames.forEach(flame => {
             flame.classList.remove('dimming', 'extinguished');
@@ -1260,6 +1263,12 @@ function tampilkanTahap3() {
                 msg.textContent = 'Semoga apa yang kamu doakan dan inginkan segera terlaksana yaa, Aamiin 🤍';
                 msg.className = 'candle-message show-msg final-msg';
             }
+            const btnKeUndangan = document.getElementById('btn-ke-undangan');
+            if (btnKeUndangan) {
+                setTimeout(() => {
+                    btnKeUndangan.style.display = 'inline-block';
+                }, 800);
+            }
         }, 600);
     }, flames.length * 400 + 500);
 
@@ -1337,4 +1346,167 @@ function buatConfetti() {
 
     // Gelombang 3: Hujan confetti lanjutan
     setTimeout(() => burstWave(40, 0), 2000);
+}
+
+// ==========================================
+// 8. FITUR INTERAKTIF UNDANGAN MAKAN SORE
+// ==========================================
+
+// Countdown Timer ke 16 Oktober 2026, 15:00:00 WIB
+function initUndanganCountdown() {
+    const targetDate = new Date('2026-10-16T15:00:00+07:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        const daysEl = document.getElementById('cd-days');
+        const hoursEl = document.getElementById('cd-hours');
+        const minutesEl = document.getElementById('cd-minutes');
+        const secondsEl = document.getElementById('cd-seconds');
+
+        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+        if (diff <= 0) {
+            daysEl.textContent = '00';
+            hoursEl.textContent = '00';
+            minutesEl.textContent = '00';
+            secondsEl.textContent = '00';
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        daysEl.textContent = days < 10 ? '0' + days : days;
+        hoursEl.textContent = hours < 10 ? '0' + hours : hours;
+        minutesEl.textContent = minutes < 10 ? '0' + minutes : minutes;
+        secondsEl.textContent = seconds < 10 ? '0' + seconds : seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+// Buka / Tutup Pesan Rahasia di Segel Lilin
+function togglePesanRahasia() {
+    const box = document.getElementById('secret-message-box');
+    const textHint = document.getElementById('wax-seal-text');
+    if (!box) return;
+
+    if (box.classList.contains('opened')) {
+        box.classList.remove('opened');
+        box.classList.add('hidden-message');
+        if (textHint) textHint.textContent = 'Sentuh segel surat untuk buka pesan spesial ✨';
+    } else {
+        box.classList.remove('hidden-message');
+        box.classList.add('opened');
+        if (textHint) textHint.textContent = 'Tutup pesan rahasia 💌';
+    }
+}
+
+// Salin Titik Koordinat GPS
+function salinKoordinat() {
+    const coords = "-6.605840, 106.811780";
+    const btn = document.getElementById('copy-coord-btn');
+    const btnText = document.getElementById('copy-btn-text');
+
+    function feedback() {
+        if (btn) btn.classList.add('copied');
+        if (btnText) btnText.textContent = 'Tersalin! ✅';
+        setTimeout(() => {
+            if (btn) btn.classList.remove('copied');
+            if (btnText) btnText.textContent = 'Salin Titik Koordinat';
+        }, 2200);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(coords).then(feedback).catch(() => {
+            fallbackCopy(coords);
+            feedback();
+        });
+    } else {
+        fallbackCopy(coords);
+        feedback();
+    }
+}
+
+// Salin Nomor WhatsApp
+function salinNomorWA() {
+    const waNumber = "089506760627";
+    const btn = document.querySelector('.copy-wa-btn');
+    const btnText = document.getElementById('copy-wa-text');
+
+    function feedback() {
+        if (btn) btn.classList.add('copied');
+        if (btnText) btnText.textContent = 'Tersalin! ✅';
+        setTimeout(() => {
+            if (btn) btn.classList.remove('copied');
+            if (btnText) btnText.textContent = 'Salin Nomor';
+        }, 2200);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(waNumber).then(feedback).catch(() => {
+            fallbackCopy(waNumber);
+            feedback();
+        });
+    } else {
+        fallbackCopy(waNumber);
+        feedback();
+    }
+}
+
+function fallbackCopy(text) {
+    const tempInput = document.createElement('input');
+    tempInput.value = text;
+    tempInput.style.position = 'fixed';
+    tempInput.style.opacity = '0';
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+        document.execCommand('copy');
+    } catch (e) {
+        console.error('Clipboard fallback error:', e);
+    }
+    document.body.removeChild(tempInput);
+}
+
+// Konfirmasi Kehadiran RSVP
+function konfirmasiHadir() {
+    if (typeof buatConfetti === 'function') {
+        buatConfetti();
+    }
+    const modal = document.getElementById('rsvp-modal');
+    if (modal) {
+        modal.classList.add('show');
+    }
+}
+
+// Tutup Modal RSVP
+function tutupRsvpModal() {
+    const modal = document.getElementById('rsvp-modal');
+    if (modal) {
+        modal.classList.remove('show');
+    }
+}
+
+// Navigasi langsung ke section undangan (dari lilin atau tombol lain)
+function menujuKeUndangan() {
+    tutupHalamanLilin();
+    setTimeout(() => {
+        const undangan = document.getElementById('undangan-section');
+        if (undangan) {
+            undangan.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 450);
+}
+
+// Jalankan countdown saat halaman dimuat
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initUndanganCountdown);
+} else {
+    initUndanganCountdown();
 }

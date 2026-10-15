@@ -13,7 +13,7 @@
 
 <body>
     <audio id="bg-music" loop>
-        <source src="audio/Colde (콜드) - Star (Lyrics).mp3" type="audio/mpeg">
+        <source src="audio/backsound.mpeg" type="audio/mpeg">
     </audio>
 
     <div id="music-popup" class="music-popup">
@@ -21,9 +21,9 @@
         <img src="img/2.jpeg" alt="Album Cover" class="album-cover">
         <div class="music-info">
             <div class="song-title-wrapper">
-                <p class="song-title">Colde</p>
+                <p class="song-title">Backsong</p>
             </div>
-            <p class="artist-name">Star</p>
+            <p class="artist-name">-</p>
         </div>
         <button id="play-pause-btn" class="play-pause-btn" onclick="toggleMusic()">
             <!-- SVG Pause Icon -->
@@ -177,10 +177,11 @@
             <h1 class="aesthetic-font fade-in-text">Happy Birthday,<br>My Favorite Person</h1>
             <p class="aesthetic-font fade-in-text"
                 style="font-size: 1.3rem; color: #8a7200; margin-top: 10px; margin-bottom: 10px; letter-spacing: 2px;">-
-                Taufik Hidayat -</p>
+                Akmal Wildan -</p>
             <img src="img/foto-pacar.png" alt="Foto Pacar" class="birthday-photo fade-in-text">
-            <p class="typing-text">Hari ini jadi salah satu hari yang spesial, karena di hari ini kamu lahir dan tumbuh
-                jadi seseorang yang luar biasa.</p>
+            <p class="typing-text">Tanggal 16 November jadi salah satu hari yang spesial, karena di hari ini kamu lahir
+                dan tumbuh jadi seseorang yang luar biasa.</p>
+
             <p class="typing-text">Selamat bertambah usia yaa. Semoga di umur yang baru ini, banyak hal baik yang datang
                 ke hidup kamu, dan semoga kamu selalu punya alasan untuk bahagia. Tetap jadi kamu yang hangat dan
                 menyenangkan seperti yang selama ini aku kenal.</p>
@@ -215,31 +216,27 @@
             <div class="solar-system">
                 <div class="orbit-track">
 
-                    <div class="planet-card item1" data-caption="Rujak Lotis">
+                    <div class="planet-card item1" data-caption="Bebek Goreng">
                         <img src="img/favorite-food.jpg" alt="Food">
                         <p class="planet-caption">Your favorite food</p>
                     </div>
 
-                    <div class="planet-card item2" data-caption="Susu">
-                        <img src="img/favorite-drink.jpg" alt="Drink">
-                        <p class="planet-caption">Your favorite drink</p>
+                    <div class="planet-card item2" data-caption="BMW M4 COMPETITION">
+                        <img src="img/favorite-car.jpg" alt="Car">
+                        <p class="planet-caption">Your favorite car</p>
                     </div>
 
-                    <div class="planet-card item3"
-                        data-embed="https://open.spotify.com/embed/track/7Ie9W94M7OjPoZVV216Xus?utm_source=generator&si=2180e8ba8083401d"
-                        data-caption="Not Afraid - Eminem">
-                        <img src="img/favorite-song.jpg" alt="Song">
-                        <p class="planet-caption">Your favorite song</p>
+                    <div class="planet-card item2" data-caption="Nonton Bareng Aku">
+                        <img src="img/favorite-place.jpg" alt="Place">
+                        <p class="planet-caption">Your favorite place</p>
                     </div>
 
-                    <div class="planet-card item4"
-                        data-embed="https://player.bilibili.com/player.html?isOutside=true&aid=117008616134669&bvid=BV14F3467EFK&cid=40442332108&p=1"
-                        data-caption="One Piece">
-                        <img src="img/favorite-yt.jpg" alt="Anime">
-                        <p class="planet-caption">Your favorite anime</p>
+                    <div class="planet-card item2" data-caption="Tidur">
+                        <img src="img/favorite-hobby.jpg.jpeg" alt="Hobby">
+                        <p class="planet-caption">Your favorite activity</p>
                     </div>
 
-                    <div class="planet-card item5" data-caption="Rena">
+                    <div class="planet-card item5" data-caption="Arum Sari">
                         <img src="img/favorite-person.jpg" alt="Person">
                         <p class="planet-caption">Your favorite person</p>
                     </div>
@@ -342,6 +339,174 @@
             <button id="btn-tiup-lilin" class="btn-tiup-lilin" onclick="bukaHalamanLilin()">🎂 Tiup Lilin</button>
         </section>
 
+        <!-- =========================================
+             SECTION: UNDANGAN MAKAN SORE WITH PRINCESS
+             (Ditempatkan di paling bawah website)
+        ========================================= -->
+        <section id="undangan-section" class="slide glass-panel show-on-scroll invitation-section">
+            <div class="invitation-header">
+                <div class="crown-badge">
+                    <span class="crown-icon">👑</span>
+                    <span class="crown-label">Birthday Dinner Invitation</span>
+                </div>
+                <h1 class="aesthetic-font invitation-title">Undangan Makan Sore with Princess</h1>
+                <p class="invitation-subtitle">Spesial untuk merayakan hari ulang tahunmu yang terindah ✨</p>
+                <div class="invitation-divider">✦ · · · 🍽️ · · · ✦</div>
+            </div>
+
+            <!-- Kartu Undangan Interaktif -->
+            <div class="invitation-card">
+                <!-- Segel Lilin Interaktif / Tombol Buka Surat -->
+                <div class="wax-seal-wrapper" id="wax-seal-wrapper" onclick="togglePesanRahasia()">
+                    <div class="wax-seal">
+                        <span class="wax-seal-icon">💌</span>
+                    </div>
+                    <p class="wax-seal-text" id="wax-seal-text">Sentuh segel surat untuk buka pesan spesial ✨</p>
+                </div>
+
+                <!-- Pesan Rahasia Tersembunyi -->
+                <div class="secret-message-box hidden-message" id="secret-message-box">
+                    <p class="secret-message-text">
+                        "Dear My Prince, hari ulang tahunmu belum lengkap kalau kita belum ngerayain dan makan bareng
+                        berdua. Aku udah siapin waktu dan tempat spesial buat kita ngobrol santai menikmati sore. Semoga
+                        kamu suka yaa! Can't wait to see your sweet smile 🥰"
+                    </p>
+                    <p class="secret-message-sign aesthetic-font">- Arum Sari 🤍</p>
+                </div>
+
+                <!-- Grid Informasi Undangan -->
+                <div class="invitation-info-grid">
+                    <!-- Kartu Tanggal & Countdown -->
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <span class="info-card-icon">📅</span>
+                            <span class="info-card-title">Tanggal</span>
+                        </div>
+                        <p class="info-card-value">Jumat, 16 November 2026</p>
+                        <p class="info-card-sub">Save the date yaa sayang!</p>
+
+                        <!-- Real-time Countdown -->
+                        <div class="countdown-label">Menuju Hari Special:</div>
+                        <div class="countdown-wrapper" id="invitation-countdown">
+                            <div class="countdown-box"><span id="cd-days">00</span><small>Hari</small></div>
+                            <div class="countdown-box"><span id="cd-hours">00</span><small>Jam</small></div>
+                            <div class="countdown-box"><span id="cd-minutes">00</span><small>Mnt</small></div>
+                            <div class="countdown-box"><span id="cd-seconds">00</span><small>Dtk</small></div>
+                        </div>
+
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Undangan+Makan+Sore+with+Princess+👑&dates=20261016T080000Z/20261016T130000Z&details=Undangan+Makan+Sore+Spesial+with+Princess+di+Hujan+Rempah.+Place:+https://g.co/kgs/N7FKsDG&location=Hujan+Rempah,+Jl.+Ciheuleut+No.15,+Bogor"
+                            target="_blank" rel="noopener noreferrer" class="calendar-btn">
+                            <span>📅 Simpan ke Google Calendar</span>
+                        </a>
+                    </div>
+
+                    <!-- Kartu Waktu -->
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <span class="info-card-icon">⏰</span>
+                            <span class="info-card-title">Waktu</span>
+                        </div>
+                        <p class="info-card-value">15.00 - Selesai WIB</p>
+                        <p class="info-card-sub">Golden hour sore yang hangat 🌇</p>
+                        <div class="time-badge">✨ Quality Time with Princess ✨</div>
+                        <p class="info-card-note">Dresscode: Best & Most Comfortable Outfit 💛</p>
+                    </div>
+
+                    <!-- Kartu Tempat -->
+                    <div class="info-card full-width-card">
+                        <div class="info-card-header">
+                            <span class="info-card-icon">🍽️</span>
+                            <span class="info-card-title">Tempat & Lokasi</span>
+                        </div>
+                        <p class="info-card-value restaurant-name">Hujan Rempah</p>
+                        <p class="restaurant-address">
+                            📍 Jl. Ciheuleut No.15, RT.04/RW.11, Baranangsiang, Kec. Bogor Timur, Kota Bogor, Jawa Barat
+                            16143
+                        </p>
+                        <div class="place-buttons">
+                            <a href="https://g.co/kgs/N7FKsDG" target="_blank" rel="noopener noreferrer"
+                                class="place-link-btn gmaps-btn">
+                                <span>🗺️ Buka di Google Maps (Place)</span>
+                            </a>
+                            <a href="https://waze.com/ul?ll=-6.60584,106.81178&navigate=yes" target="_blank"
+                                rel="noopener noreferrer" class="place-link-btn waze-btn">
+                                <span>🚗 Rute via Waze</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Map Preview -->
+                    <div class="map-preview-container">
+                        <div class="map-header-bar">
+                            <span class="map-dot red"></span>
+                            <span class="map-dot yellow"></span>
+                            <span class="map-dot green"></span>
+                            <span class="map-title-tag">📍 Live Pin: Hujan Rempah (-6.60584, 106.81178)</span>
+                        </div>
+                        <div class="map-frame-wrapper">
+                            <iframe id="map-embed-iframe" title="Peta Lokasi Hujan Rempah"
+                                src="https://maps.google.com/maps?q=-6.60584,106.81178&hl=id&z=16&output=embed"
+                                width="100%" height="240" style="border:0; border-radius: 0 0 14px 14px;"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian Request Waktu via WhatsApp -->
+            <div class="wa-request-card">
+                <div class="wa-badge">💬 Request Waktu Khusus</div>
+                <h3 class="wa-title">Kalo Gabisa di Jam Itu?</h3>
+                <p class="wa-desc">
+                    Kalo gabisa di jam itu kirim chat ke wa dibawah ini untuk request waktu yaa:
+                </p>
+
+                <div class="wa-action-box">
+                    <a href="https://wa.me/6289506760627?text=Halo%20Rena%2C%20aku%20mau%20request%20jam%20untuk%20undangan%20makan%20sore%20di%20Hujan%20Rempah%20tanggal%2016%20Oktober%202026%20bisa%20nggak%20ya%3F%20%F0%9F%A5%B0"
+                        target="_blank" rel="noopener noreferrer" class="wa-main-btn" id="wa-link-btn">
+                        <svg class="wa-icon-svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path
+                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                        </svg>
+                    </a>
+
+                    <!-- Interactive RSVP Buttons -->
+                    <div class="rsvp-action-section">
+                        <p class="rsvp-prompt">Konfirmasi Kehadiran Ke Princess: 💕</p>
+                        <div class="rsvp-buttons">
+                            <button class="rsvp-btn rsvp-yes" onclick="konfirmasiHadir()">
+                                💖 Aku Pasti Datang!
+                            </button>
+                            <a href="https://wa.me/6289506760627?text=Halo%20Rena%2C%20soal%20Undangan%20Makan%20Sore%20di%20Hujan%20Rempah%2C%20aku%20mau%20request%20jam%20bisa%20nggak%20ya%3F"
+                                target="_blank" rel="noopener noreferrer" class="rsvp-btn rsvp-wa">
+                                💬 Request Jam via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Modal RSVP Sukses -->
+                    <div id="rsvp-modal" class="rsvp-modal">
+                        <div class="rsvp-modal-content">
+                            <div class="rsvp-modal-emoji">🎉👑🥰</div>
+                            <h3 class="rsvp-modal-title">Yaaaay! Janji yaa!</h3>
+                            <p class="rsvp-modal-desc">
+                                Aku tunggu kamu di <strong>Hujan Rempah</strong> tanggal <strong>16 November
+                                    2026</strong>
+                                jam <strong>15.00 WIB</strong>.<br><br>
+                                I can't wait to spend this lovely afternoon with you, My Prince! 💖✨
+                            </p>
+                            <button class="rsvp-modal-close" onclick="tutupRsvpModal()">Tutup & Peluk Arum 🤗</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Closing -->
+                <div class="invitation-footer">
+                    <p class="aesthetic-font footer-love-text">See you there, my prince 🤍</p>
+                </div>
+        </section>
+
         <!-- HALAMAN TIUP LILIN (Full Screen Overlay) -->
         <div id="candle-page" class="candle-page">
             <!-- Astronaut Background -->
@@ -372,7 +537,7 @@
                                 <div class="flame-inner"></div>
                             </div>
                             <div class="candle-number-body">
-                                <span class="candle-digit">4</span>
+                                <span class="candle-digit">3</span>
                             </div>
                         </div>
                     </div>
@@ -399,6 +564,10 @@
 
                 <button id="btn-mulai-tiup" class="btn-mulai-tiup" onclick="mulaiTiupLilin()">Mulai Tiup Lilin</button>
                 <p id="tap-hint" class="tap-hint"></p>
+                <!-- Tombol loncat ke undangan setelah tiup lilin -->
+                <button id="btn-ke-undangan" class="btn-ke-undangan" style="display: none;"
+                    onclick="menujuKeUndangan()">💌
+                    Buka Undangan👑</button>
             </div>
         </div>
 

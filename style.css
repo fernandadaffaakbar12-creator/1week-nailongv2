@@ -2705,3 +2705,865 @@ body {
         transform: translateX(20px);
     }
 }
+
+/* =========================================
+   SECTION UNDANGAN MAKAN SORE WITH PRINCESS
+========================================= */
+.invitation-section {
+    background: rgba(255, 252, 235, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid rgba(230, 168, 0, 0.45);
+    border-radius: 28px;
+    padding: 45px 30px;
+    box-shadow: 0 16px 48px rgba(212, 160, 23, 0.22),
+                inset 0 0 25px rgba(255, 241, 118, 0.2);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.invitation-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 20%, rgba(255, 235, 59, 0.15), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.invitation-header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 25px;
+}
+
+.crown-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #fff8e1, #ffe082);
+    border: 1px solid rgba(230, 168, 0, 0.6);
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(230, 168, 0, 0.25);
+    margin-bottom: 12px;
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.crown-icon {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(212, 160, 23, 0.4));
+}
+
+.crown-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #6d4c00;
+}
+
+.invitation-title {
+    font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+    color: #b8860b;
+    text-shadow: 2px 2px 10px rgba(230, 168, 0, 0.35);
+    margin: 8px 0;
+    line-height: 1.15;
+}
+
+.invitation-subtitle {
+    font-size: 1rem;
+    color: #6d5400;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.invitation-divider {
+    color: #d4a017;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    margin: 10px 0 20px 0;
+    opacity: 0.8;
+}
+
+/* KARTU SURAT & SEGEL LILIN */
+.invitation-card {
+    position: relative;
+    z-index: 1;
+}
+
+.wax-seal-wrapper {
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    user-select: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wax-seal-wrapper:hover {
+    transform: scale(1.06);
+}
+
+.wax-seal {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ef5350, #c62828 70%, #8e0000 100%);
+    border: 3px solid #ffe082;
+    box-shadow: 0 8px 20px rgba(183, 28, 28, 0.45),
+                inset 0 3px 6px rgba(255, 255, 255, 0.3),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: waxPulse 2.5s infinite;
+}
+
+@keyframes waxPulse {
+    0%, 100% { box-shadow: 0 8px 20px rgba(183, 28, 28, 0.45), 0 0 0 0 rgba(230, 168, 0, 0.4); }
+    50% { box-shadow: 0 10px 25px rgba(183, 28, 28, 0.6), 0 0 0 10px rgba(230, 168, 0, 0); }
+}
+
+.wax-seal-icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.wax-seal-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #8c6d00;
+    background: rgba(255, 248, 225, 0.8);
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px dashed rgba(230, 168, 0, 0.5);
+}
+
+/* PESAN RAHASIA */
+.secret-message-box {
+    background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%);
+    border: 2px dashed #d4a017;
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 20px rgba(212, 160, 23, 0.15);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top center;
+}
+
+.secret-message-box.hidden-message {
+    display: none;
+    opacity: 0;
+    transform: scaleY(0.8);
+}
+
+.secret-message-box.opened {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
+    animation: unfoldMsg 0.4s ease-out;
+}
+
+@keyframes unfoldMsg {
+    from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.secret-message-text {
+    font-style: italic;
+    color: #4e3800;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.secret-message-sign {
+    font-size: 1.6rem;
+    color: #b8860b;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* GRID INFORMASI */
+.invitation-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1.5px solid rgba(230, 168, 0, 0.35);
+    border-radius: 18px;
+    padding: 20px 18px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(200, 150, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(200, 150, 0, 0.16);
+}
+
+.full-width-card {
+    grid-column: 1 / -1;
+}
+
+.info-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.info-card-icon {
+    font-size: 1.3rem;
+}
+
+.info-card-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8c6d00;
+}
+
+.info-card-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #3e2e00;
+    margin: 4px 0;
+}
+
+.restaurant-name {
+    font-size: 1.5rem;
+    color: #b8860b;
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    margin: 2px 0 6px 0;
+}
+
+.restaurant-address {
+    font-size: 0.92rem;
+    color: #5d4600;
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0 auto 14px auto;
+}
+
+.info-card-sub {
+    font-size: 0.85rem;
+    color: #7d5e00;
+    margin-bottom: 8px;
+}
+
+.info-card-note {
+    font-size: 0.78rem;
+    color: #8c6d00;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.time-badge {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border: 1px solid rgba(255, 167, 38, 0.5);
+    color: #b26a00;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 4px;
+}
+
+/* COUNTDOWN TIMER */
+.countdown-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #8c6d00;
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+.countdown-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 6px 0 12px 0;
+}
+
+.countdown-box {
+    background: linear-gradient(180deg, #fffde7, #fff59d);
+    border: 1px solid rgba(230, 168, 0, 0.5);
+    border-radius: 10px;
+    padding: 6px 8px;
+    min-width: 44px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(212, 160, 23, 0.15);
+}
+
+.countdown-box span {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #b8860b;
+    display: block;
+    line-height: 1.1;
+}
+
+.countdown-box small {
+    font-size: 0.62rem;
+    color: #6d5400;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.calendar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #7d5e00;
+    background: rgba(255, 238, 88, 0.25);
+    border: 1px solid rgba(230, 168, 0, 0.5);
+    padding: 5px 12px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.calendar-btn:hover {
+    background: #ffe082;
+    color: #4e3800;
+    transform: translateY(-1px);
+}
+
+/* PLACE BUTTONS */
+.place-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.place-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.gmaps-btn {
+    background: linear-gradient(135deg, #4285F4, #3367D6);
+    color: #ffffff;
+}
+
+.gmaps-btn:hover {
+    background: linear-gradient(135deg, #3367D6, #2851a3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+}
+
+.waze-btn {
+    background: linear-gradient(135deg, #00d2ff, #00a8ff);
+    color: #ffffff;
+}
+
+.waze-btn:hover {
+    background: linear-gradient(135deg, #00a8ff, #0084cc);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 168, 255, 0.4);
+}
+
+/* KARTU TITIK KOORDINAT */
+.coordinate-card {
+    background: linear-gradient(145deg, rgba(255, 253, 231, 0.9), rgba(255, 248, 225, 0.85));
+    border: 2px solid rgba(230, 168, 0, 0.5);
+    border-radius: 20px;
+}
+
+.coord-display-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid rgba(230, 168, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 14px;
+    margin: 8px 0;
+    flex-wrap: wrap;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.coord-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.92rem;
+}
+
+.coord-label {
+    font-weight: 600;
+    color: #7d5e00;
+}
+
+.coord-val {
+    font-weight: 700;
+    font-family: monospace, monospace;
+    font-size: 1.05rem;
+    color: #b8860b;
+}
+
+.coord-divider {
+    color: #d4a017;
+    font-weight: 700;
+}
+
+.coord-dms {
+    font-size: 0.85rem;
+    color: #6d5400;
+    margin-bottom: 12px;
+}
+
+.coord-actions {
+    margin-bottom: 15px;
+}
+
+.copy-coord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ffe082, #ffd54f);
+    border: 1.5px solid #d4a017;
+    border-radius: 30px;
+    padding: 9px 22px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4e3800;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(212, 160, 23, 0.25);
+    transition: all 0.2s ease;
+}
+
+.copy-coord-btn:hover {
+    background: linear-gradient(135deg, #ffd54f, #ffca28);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(212, 160, 23, 0.35);
+}
+
+.copy-coord-btn.copied {
+    background: linear-gradient(135deg, #a5d6a7, #81c784);
+    border-color: #4caf50;
+    color: #1b5e20;
+}
+
+/* MAP PREVIEW EMBED */
+.map-preview-container {
+    width: 100%;
+    max-width: 620px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid rgba(230, 168, 0, 0.45);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    margin-top: 5px;
+}
+
+.map-header-bar {
+    background: linear-gradient(90deg, #fff8e1, #ffecb3);
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid rgba(230, 168, 0, 0.3);
+}
+
+.map-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.map-dot.red { background: #ff5252; }
+.map-dot.yellow { background: #ffd740; }
+.map-dot.green { background: #69f0ae; }
+
+.map-title-tag {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #6d5400;
+    margin-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.map-frame-wrapper iframe {
+    display: block;
+    width: 100%;
+    border: none;
+}
+
+/* BAGIAN REQUEST WAKTU WHATSAPP */
+.wa-request-card {
+    background: linear-gradient(135deg, rgba(232, 245, 233, 0.95), rgba(255, 248, 225, 0.9));
+    border: 2px solid rgba(76, 175, 80, 0.45);
+    border-radius: 22px;
+    padding: 26px 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 24px rgba(46, 125, 50, 0.12);
+}
+
+.wa-badge {
+    display: inline-block;
+    background: rgba(76, 175, 80, 0.15);
+    border: 1px solid rgba(76, 175, 80, 0.4);
+    color: #1b5e20;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.wa-title {
+    font-size: 1.4rem;
+    color: #1b5e20;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.wa-desc {
+    font-size: 0.95rem;
+    color: #334d28;
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0 auto 16px auto;
+}
+
+.wa-action-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.wa-main-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.38);
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wa-main-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 26px rgba(37, 211, 102, 0.5);
+    color: #ffffff;
+}
+
+.wa-icon-svg {
+    flex-shrink: 0;
+}
+
+.wa-btn-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.wa-btn-heading {
+    font-size: 0.8rem;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+.wa-phone-number {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.copy-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid rgba(76, 175, 80, 0.5);
+    color: #1b5e20;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-wa-btn:hover {
+    background: #e8f5e9;
+    transform: translateY(-2px);
+}
+
+.copy-wa-btn.copied {
+    background: #c8e6c9;
+    border-color: #2e7d32;
+}
+
+/* INTERACTIVE RSVP SECTION */
+.rsvp-action-section {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(230, 168, 0, 0.3);
+    border-radius: 20px;
+    padding: 22px 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rsvp-prompt {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #5d4600;
+    margin-bottom: 12px;
+}
+
+.rsvp-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.rsvp-btn {
+    border: none;
+    border-radius: 50px;
+    padding: 12px 26px;
+    font-size: 0.98rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rsvp-yes {
+    background: linear-gradient(135deg, #ff6b81, #ffa502);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(255, 107, 129, 0.35);
+}
+
+.rsvp-yes:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(255, 107, 129, 0.5);
+}
+
+.rsvp-wa {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+}
+
+.rsvp-wa:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+}
+
+/* MODAL RSVP POPUP */
+.rsvp-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.rsvp-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.rsvp-modal-content {
+    background: linear-gradient(145deg, #fffde7, #ffffff);
+    border: 2px solid #ffd54f;
+    border-radius: 26px;
+    padding: 32px 24px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.rsvp-modal.show .rsvp-modal-content {
+    transform: scale(1);
+}
+
+.rsvp-modal-emoji {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: bounceEmoji 1s infinite alternate;
+}
+
+@keyframes bounceEmoji {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
+}
+
+.rsvp-modal-title {
+    font-size: 1.8rem;
+    font-family: 'Caveat', cursive;
+    color: #b8860b;
+    margin-bottom: 10px;
+}
+
+.rsvp-modal-desc {
+    font-size: 0.98rem;
+    color: #4a3800;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.rsvp-modal-close {
+    background: linear-gradient(135deg, #ffd54f, #ffb300);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #4e3800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(230, 168, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.rsvp-modal-close:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 168, 0, 0.45);
+}
+
+/* FOOTER UNDANGAN */
+.invitation-footer {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.footer-love-text {
+    font-size: 2.2rem;
+    color: #b8860b;
+    margin-bottom: 5px;
+}
+
+/* TOMBOL JUMP KE UNDANGAN DARI CANDLE PAGE */
+.btn-ke-undangan {
+    display: inline-block;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #ffd54f, #ffb300);
+    border: 2px solid #fff;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #4e3800;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 213, 79, 0.45);
+    animation: pulseBtn 2s infinite;
+}
+
+@keyframes pulseBtn {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* RESPONSIVE BREAKPOINTS UNTUK UNDANGAN */
+@media (max-width: 600px) {
+    .invitation-section {
+        padding: 30px 16px;
+        margin-bottom: 30px;
+    }
+
+    .invitation-info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .invitation-title {
+        font-size: 2.2rem;
+    }
+
+    .restaurant-name {
+        font-size: 1.8rem;
+    }
+
+    .coord-display-box {
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px 12px;
+    }
+
+    .coord-divider {
+        display: none;
+    }
+
+    .wa-main-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .copy-wa-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .rsvp-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
