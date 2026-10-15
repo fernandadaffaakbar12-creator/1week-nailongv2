@@ -1352,9 +1352,9 @@ function buatConfetti() {
 // 8. FITUR INTERAKTIF UNDANGAN MAKAN SORE
 // ==========================================
 
-// Countdown Timer ke 16 Oktober 2026, 15:00:00 WIB
+// Countdown Timer ke 16 November 2026, 15:00:00 WIB
 function initUndanganCountdown() {
-    const targetDate = new Date('2026-10-16T15:00:00+07:00').getTime();
+    const targetDate = new Date('2026-11-16T15:00:00+07:00').getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
