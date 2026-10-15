@@ -256,7 +256,7 @@
                 // Percobaan pertama: tampilkan foto kucing
                 showCat: true,
                 emoji: '',
-                message: 'Masa tanggal spesial kita lupa?',
+                message: 'Masa tanggal lahir aku lupa?',
                 buttonText: 'Iya iya maaf 😭'
             },
             {
